@@ -1,0 +1,70 @@
+{{!--<!--
+SPDX-FileCopyrightText: 2022 Ethaks <ethaks@pm.me>
+SPDX-License-Identifier: EUPL-1.2
+-->--}}
+<section class="tab spheres" data-group="{{ dataGroup }}" data-tab="spheres">
+    <!-- Header area containing Spheres attributes -->
+    <div class="attribute-grid grid grid-5col">
+        <span class="block-header sop-header flexrow">{{ localize "PF1SPHERES.SpheresOfPower" }}</span>
+        <span class="block-header som-header flexrow">{{ localize "PF1SPHERES.SpheresOfMight" }}</span>
+        {{#each attributeGrid as |element |}}
+            <div class="{{ element.attribute }} attribute" data-tooltip-sphere="{{element.attribute}}">
+                <h4 class="attribute-name box-title {{ element.rollable }}">{{ element.label }}</h4>
+                <span class="attribute-value large">{{ element.total }}</span>
+            </div>
+        {{/each }}
+    </div>
+    <!-- Spheres with their name, talent count, CL, and talent collabpsible -->
+    <ol class="spheres-list">
+        {{#each allSpheres as |sphere|}}
+            {{#if sphere.hasTalents }}
+                <li class="sphere grid" data-sphere="{{ sphere.sphere }}">
+                    <img class="sphere-icon" alt="{{ sphere.label }}" src="{{ sphere.icon }}" />
+                    <div class="block-header sphere-label flexrow">{{ sphere.label }}</div>
+                    <div class="sphere-info">
+                      <span data-tooltip="@spheres.talents.{{sphere.sphere}}.total: {{sphere.talentCounts.total}} <br> @spheres.talents.{{sphere.sphere}}.excluded: {{sphere.talentCounts.excluded}}"
+                        >
+                          <b>{{ localize "PF1SPHERES.TalentPlural" }}</b>: {{ sphere.talentCounts.total }}
+                          {{#if sphere.talentCounts.excluded}} ({{ sphere.talentCounts.excluded }}) {{/if }}
+                      </span>
+                    </div>
+                <span class="sphere-level-label">{{ sphere.levelLabel }}</span>
+                <div class="sphere-level-value" data-tooltip-sphere="{{sphere.tooltipId}}">
+                    {{ sphere.total }}
+                </div>
+                <div class="block-header expand-sphere flexrow">
+                    {{ localize "PF1SPHERES.TalentPlural" }}
+                    <i class="fas fa-angle-double-down {{#if sphere.expandTalents }}rotate-arrow{{/if }}"></i>
+                </div>
+                <ol class="item-list sphere-talents" {{#if (ne sphere.expandTalents true) }} style="display: none" {{/if }}>
+                    <!-- Individual talent-->
+                    {{#each sphere.talents as |talent|}}
+                        <li class="talent grid item" data-item-id="{{ talent.id }}">
+                            <div class="talent-icon">
+                                <img src="{{ talent.img }}" alt="Sphere icon for {{ talent.name }}"/>
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <div class="talent-name">
+                                <b>{{ talent.name }}</b>
+                                {{#each talent.tags as |tag|}}
+                                    <span class="talent-tag">{{ tag }}</span>
+                                {{/each }}
+                            </div>
+                            <div class="talent-activation">{{ talent.activationType }}</div>
+                            <div class="talent-use">
+                                {{#if talent.hasAction }}
+                                    <a class "item-control item-action action roll" data-tooltip="PF1.UseFeat">
+                                      <i class ="fas fa-dice-d20"></i>
+                                    </a>
+                                </img>
+                            {{/if }}
+                        </div>
+                        {{!-- <div class="talent-controls"></div> --}}
+                    </li>
+                {{/each }}
+            </ol>
+        </li>
+    {{/if }}
+{{/each }}
+</ol>
+</section>

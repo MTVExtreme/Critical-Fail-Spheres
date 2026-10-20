@@ -1,0 +1,209 @@
+/*
+ * SPDX-FileCopyrightText: 2022 Ethaks <ethaks@pm.me>
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+/* ------------------------------------ */
+/*                 CSS                  */
+/* ------------------------------------ */
+.tab.spheres {
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.tab.spheres .block-header {
+  text-align: center;
+  align-items: center;
+}
+.tab.spheres .block-header::before,
+.tab.spheres .block-header::after {
+  content: "";
+  flex: 1;
+  height: 0px;
+  background-color: transparent;
+  border-top: 2px solid #75514b;
+}
+.tab.spheres .block-header::before {
+  margin-right: 0.5rem;
+}
+.tab.spheres .block-header::after {
+  margin-left: 0.5rem;
+}
+.tab.spheres .attribute-grid {
+  font-family: "Modesto Condensed Bold", "Signika", "Palatino Linotype", serif;
+  font-size: var(--font-size-24, 24px);
+  grid-template-rows: auto auto;
+  max-height: none;
+}
+.tab.spheres .attribute-grid .sop-header,
+.tab.spheres .attribute-grid .som-header {
+  line-height: 1.05;
+  overflow: visible;
+  align-self: end;
+}
+.tab.spheres .attribute-grid .sop-header {
+  grid-column: 1/span 4;
+}
+.tab.spheres .attribute-grid .som-header {
+  grid-column: 5/span 1;
+  font-size: 0.7em;
+}
+.tab.spheres .attribute-grid .som-header::before,
+.tab.spheres .attribute-grid .som-header::after {
+  display: none;
+}
+.tab.spheres .attribute-grid .attribute {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 0.5rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+}
+.tab.spheres .attribute-grid .attribute-value {
+  font-size: 2rem;
+  line-height: 2.8rem;
+}
+.tab.spheres .grid.sop-levels,
+.tab.spheres .grid.som-levels {
+  grid-auto-rows: min-content;
+  grid-row-gap: 0.4rem;
+  text-align: center;
+  display: none;
+}
+.tab.spheres .grid.sop-levels .sphere,
+.tab.spheres .grid.som-levels .sphere {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.tab.spheres ol.spheres-list,
+.tab.spheres ol.item-list {
+  padding: 0;
+  grid-row-gap: 0.3rem;
+}
+.tab.spheres li.sphere {
+  grid-template-areas: "image    label   level-label" "image    info    level" "image    expand  level" "talents  talents talents";
+  grid-template-columns: 4rem 1fr 4rem;
+  grid-template-rows: 2rem 1rem 1.3rem 1fr;
+  gap: 0.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.tab.spheres li.sphere .block-header {
+  font-family: "Modesto Condensed Bold", "Signika", "Palatino Linotype", serif;
+  font-size: 2rem;
+  text-align: left;
+}
+.tab.spheres li.sphere .block-header.sphere-label::before {
+  display: none;
+}
+.tab.spheres li.sphere .block-header:hover {
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+.tab.spheres li.sphere img.sphere-icon {
+  grid-area: image;
+  border: none;
+}
+.tab.spheres li.sphere .sphere-info {
+  grid-area: info;
+  font-size: 0.9rem;
+}
+.tab.spheres li.sphere .expand-sphere {
+  grid-area: expand;
+  font-size: 1.2rem;
+}
+.tab.spheres li.sphere .expand-sphere i {
+  flex: 0;
+  margin-left: 5px;
+  opacity: 0.7;
+  transition: transform 200ms ease-out;
+}
+.tab.spheres li.sphere .expand-sphere i.rotate-arrow {
+  transform: rotate(-180deg);
+}
+.tab.spheres li.sphere .sphere-level-label {
+  font-family: "Modesto Condensed Bold", "Signika", "Palatino Linotype", serif;
+  grid-area: level-label;
+  align-self: self-end;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.tab.spheres li.sphere .sphere-level-value {
+  font-family: "Modesto Condensed Bold", "Signika", "Palatino Linotype", serif;
+  grid-area: level;
+  text-align: center;
+  font-size: 2rem;
+}
+.tab.spheres li.sphere .sphere-talents {
+  grid-area: talents;
+}
+.tab.spheres li.sphere .talent.grid {
+  margin: 0rem;
+  grid-template-areas: "image name activation use controls";
+  grid-template-columns: 1.5rem 1fr minmax(3rem, 4rem) 1rem 100px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.tab.spheres li.sphere .talent.grid:nth-child(2n+1) {
+  background-color: rgba(255, 255, 255, 0);
+}
+.tab.spheres li.sphere .talent.grid .talent-icon {
+  height: 24px;
+}
+.tab.spheres li.sphere .talent.grid .talent-icon > img {
+  border: none;
+}
+.tab.spheres li.sphere .talent.grid .talent-icon > img:last-child {
+  display: none;
+}
+.tab.spheres li.sphere .talent.grid .talent-icon:hover img:last-child {
+  display: grid;
+}
+.tab.spheres li.sphere .talent.grid .talent-icon:hover img:first-child {
+  display: none;
+}
+.tab.spheres li.sphere .talent.grid .talent-tag {
+  margin-left: 0.3rem;
+  font-size: 0.7rem;
+  line-height: 0.8rem;
+  border: 1px solid #999;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.05);
+}
+.tab.spheres li.sphere .talent.grid > .talent-name:hover b {
+  text-shadow: 0 0 8px var(--color-shadow-primary);
+  cursor: pointer;
+}
+.tab.spheres .grid,
+.tab.spheres .grid-2col {
+  display: grid;
+  grid-column: span 2/span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+.tab.spheres .grid-3col {
+  grid-column: span 3/span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.tab.spheres .grid-4col {
+  grid-column: span 4/span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.tab.spheres .grid-5col {
+  grid-column: span 5/span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.tab.spheres .grid-6col {
+  grid-column: span 6/span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.tab.spheres .grid-7col {
+  grid-column: span 7/span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+/* The engine's loose panel is what drops the tab bar. Only the real sheet part may show. */
+.pf1.sheet.actor .tab.spheres:not([data-application-part="spheres"]) {
+  display: none !important;
+}

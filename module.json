@@ -1,0 +1,93 @@
+{
+  "id": "critical-fail-spheres",
+  "title": "Critical Fail Spheres",
+  "description": "Critical Fail's Foundry v14 Spheres of Power, Might, and Guile. This is the maintained copy for our games, including the compendium packs.",
+  "version": "14.0.0",
+  "authors": [
+    {
+      "name": "MTVExtreme",
+      "discord": "mtvextreme",
+      "email": "mtvextreme1998@gmail.com"
+    },
+    {
+      "name": "Ethaks",
+      "discord": "Ethaks#2903",
+      "url": "https://github.com/Ethaks"
+    },
+    {
+      "name": "Xavion",
+      "discord": "Xavion#9504"
+    }
+  ],
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14",
+    "maximum": "14"
+  },
+  "esmodules": [
+    "module.mjs"
+  ],
+  "styles": [
+    "style.css",
+    "styles/guile.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [
+    {
+      "name": "combat-talents",
+      "label": "Combat Talents",
+      "system": "pf1",
+      "type": "Item"
+    },
+    {
+      "name": "magic-talents",
+      "label": "Magic Talents",
+      "system": "pf1",
+      "type": "Item"
+    },
+    {
+      "name": "sphere-feats",
+      "label": "Spheres Feats",
+      "system": "pf1",
+      "type": "Item"
+    },
+    {
+      "name": "classes",
+      "label": "Spheres Classes",
+      "system": "pf1",
+      "type": "Item"
+    },
+    {
+      "name": "class-features",
+      "label": "Spheres Class Features",
+      "system": "pf1",
+      "type": "Item"
+    },
+    {
+      "name": "rules",
+      "label": "Spheres Rules",
+      "type": "JournalEntry"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "pf1",
+        "type": "system",
+        "compatibility": {
+          "minimum": "11.0",
+          "verified": "11.11"
+        }
+      }
+    ]
+  },
+  "license": "EUPL-1.2",
+  "socket": false,
+  "library": false
+}

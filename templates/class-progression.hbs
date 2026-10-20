@@ -1,0 +1,12 @@
+{{!--<!--
+SPDX-FileCopyrightText: 2022 Ethaks <ethaks@pm.me>
+SPDX-License-Identifier: EUPL-1.2
+-->--}}
+<div class="form-group">
+    <label>{{ localize "PF1SPHERES.CasterProgression" }}</label>
+    <div class="form-fields">
+        <select name="flags.pf1spheres.casterProgression">
+            {{selectOptions pf1sconfig.progression selected=item.flags.pf1spheres.casterProgression blank="PF1.None" localize=true}}
+        </select>
+    </div>
+</div>
